@@ -1,0 +1,1000 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Kezie store</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'Main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="keziestore">
+        <h1>KezieStore</h1>
+        <p>Cart<i class="fas fa-shopping-cart"></i> (0)</p>
+
+        <a href="" class="menu" id="menu"><i class="fas fa-bars"></i></a>
+        <a href="" id="close"><i class="fas fa-times"></i></a>
+
+        <div class="category-container" id="categorycontainer">
+          <details class="category">
+            <summary>Category &#x25BC;</summary>
+            <a href="">Books</a>
+            <a href="">Bags</a>
+            <a href="#shoe">Shoe</a>
+            <a href="#modicci">Hand Bag</a>
+            <a href="">Laptop</a>
+            <a href="#kids">Kids wear</a>
+            <a href="#menwear">men</a>
+            <a href="#wemenwear">women</a>
+            <a href="">under wears</a>
+            <a href="">watch</a>
+          </details>
+
+          <a href="profile" id="profilebtn">Profile</a>
+          <a href="">Deals</a>
+          <a href="">What's New</a>
+          <a href="#settings" id="settingsbtn">Settings</a>
+        </div>
+      </div>
+
+      <nav class="navbar">
+        <a href="#allproduct">Shop</a>
+        <a href="#home" id="homebtn">Home</a>
+        <a href="#allproduct">product page</a>
+        <a href="#checkout" id="checkoutbtn">checkout</a>
+        <a href="#signup" id="signupbtn">Signup</a>
+        <a href="">Amount</a>
+        <a href="">Shopcart Help</a>
+        <a href="#aboutus" id="aboutusbtn">About us</a>
+        <a href="#contactus" id="contactusbtn">Contact us</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#privacy" id="privacybtn">privacy police</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="homepage" id="home">
+        <div class="firstbox">
+          <h1>BEST ONLINE STORE BOLD STYLE EVERY DAY</h1>
+          <p>
+            Discover luxurious, high-quality best crafted for confort and style.
+          </p>
+
+          <div class="forshop">
+            <a href="#bestproduct" class="shopnow">Shop Now</a>
+            <p>Free Shipping on Order $600+</p>
+          </div>
+        </div>
+
+        <img src="{% static 'IMG-WA0290.JPG' %}" alt="" />
+      </section>
+
+      <article class="newcollection" id="newcollection">
+        <h2>Latest product</h2>
+        <div class="newcollection1">
+          <div class="newcollectionbox1">
+            <p>Explore Luxury Designs, style and Upgrade</p>
+            <h5>
+              Shop Now for Exclusive Deals and Enjoy Seamless Online Ordering.
+            </h5>
+          </div>
+
+          <div class="newcollectionimg">
+            <div id="shoe">
+              <img src="{% static 'IMG-20250.JPG' %}" alt="" />
+              <h4>MCQ</h4>
+              <p>
+                The sneaker features a chunky design with a mix of materials,
+              </p>
+            </div>
+            <div>
+              <img src="{% static 'IMG-WA0014.JPG'%}" alt="" />
+              <h4>Four Season</h4>
+              <p>
+                Niche leather Sneakers Retro Hong Kong Wind Storm Bear Solo
+                Men's Workwear OutDoor
+              </p>
+            </div>
+            <div id="modicci">
+              <img src="{% static 'IMG-WA0011.JPG'%}" alt="" />
+              <h4>Modicci</h4>
+              <p>holographic chain bag</p>
+            </div>
+          </div>
+
+          <div class="newcollectionimghide" id="newcollectionimghide">
+            <div>
+              <img src="{% static 'IMG_4561.jpg'%}" alt="" />
+              <h4>Calviame Brand</h4>
+              <p>
+                Gold wristwatch with a matching bracelet and nail shaped bangle
+              </p>
+            </div>
+
+            <div>
+              <img src="{% static 'IMG_4568.jpg'%}" alt="" />
+              <h4>Royal Gen</h4>
+              <p>Charming Gold set</p>
+            </div>
+
+            <div>
+              <img src="{% static 'IMG_4565.jpg'%}" alt="" />
+              <h4>Calviame Brand</h4>
+              <p>
+                Sliver toned wristwatch with a matching bracelet and nail shaped
+                bangle
+              </p>
+            </div>
+
+            <div>
+              <img src="{% static 'IMG_4564.jpg'%}" alt="" />
+              <h4>Xtreme</h4>
+              <p>Xtreme Sur Watch</p>
+            </div>
+
+            <div>
+              <img src="{% static 'IMG_4563.jpg'%}" alt="" />
+              <h4>Midi Rings</h4>
+              <p>Midi rings or finger tip rings</p>
+            </div>
+
+            <div>
+              <img src="{% static 'IMG_4562.jpg'%}" alt="" />
+              <h4>BLINK FACTORY</h4>
+              <p>Hip Hop Iced Emoji Smile Face Pendant and Chain Necklace</p>
+            </div>
+          </div>
+
+          <a href="#allproduct" class="shopourcollection"
+            >Shop our Collections</a
+          >
+          <a
+            href="#newcollection"
+            class="shopourcollection"
+            id="viewmorecollection"
+            >View More Collections</a
+          >
+
+          <h1>
+            Elevate Every Step with Exquisite Style Fashion Crafted to Reflect
+            Your Unique Personality, Turning Ordinary Outfits Into Extraordinary
+            Statements.
+          </h1>
+        </div>
+      </article>
+
+      <section class="allproduct" id="allproduct">
+        <h1 class="allproducth1">All product</h1>
+
+        <div class="allproductcontainer">
+          <div>
+            <img src="{% static 'IMG_4572.jpg'%}" alt="" />
+            <h1>
+              Directional Round Neck Short Sleeve T- Shirt and Work Pants Set
+            </h1>
+            <aside>
+              <p>$50</p>
+              <a href="#~"><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4575.jpg'%}" alt="" />
+            <h1>
+              Women's Geometric Pattern Collar Sweatshirt Green with White '89'
+              Design, Button-Front Detail
+            </h1>
+            <aside>
+              <p>$30</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4577.jpg'%}" alt="" />
+            <h1>
+              Everyday Elegance| Elegant Women's Two-Piece Set: Color Block
+              Button-Up Shirt & Wide-Leg Pants
+            </h1>
+            <aside>
+              <p>$50</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4599.jpg'%}" alt="" />
+            <h1>
+              Men's Casual Corduroy Jacket - Long Sleeve Collared Shirt with
+              All-Over Print, Chest Pockets & Button-
+            </h1>
+            <aside>
+              <p>$33</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250408-WA0049.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$10</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250408-WA0055.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$13</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250408-WA0054.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$12</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250408-WA0053.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$20</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250409-WA0072.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$17</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250409-WA0003.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$88</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250409-WA0070.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$14</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250409-WA0073.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$19</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250405-WA0030.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$45</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250404-WA0054.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$55</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250404-WA0053.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$14</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250404-WA0052.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$12</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+          <div>
+            <img src="{% static 'IMG-20250404-WA0055.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$77</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250412-WA0023.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$79</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250412-WA0027.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$20</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+        </div>
+
+        <div class="allproductpagehide" id="allproductpagehide">
+          <h2 id="menwear">Men Wear</h2>
+
+          <div>
+            <img src="{% static 'IMG_4580.jpg'%}" alt="" />
+            <h1>
+              Pei Kuan's Choice Summer Men's Sports Suit Youth Student Casual
+              Suit Two-piece Suit T-shirt Shorts
+            </h1>
+            <aside>
+              <p>$67</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4582.jpg'%}" alt="" />
+            <h1>
+              3pcs Men'S Plaid Button-Up Shirts with Chest Pockets Long Sleeve,
+              Collared Neck, Casual Streetwear
+            </h1>
+            <aside>
+              <p>$40</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4584.jpg'%}" alt="" />
+            <h1>
+              Men'S Solid Color Tweed Jacket, Mature Style, Snap Closure,
+              Regular Fit, Polyester Lining, Woven Fabric, 485g/m', Fall/Winter
+              Lapel Collar with Pockets
+            </h1>
+            <aside>
+              <p>$36</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4588.jpg'%}" alt="" />
+            <h1>
+              Men's Casual Fashion Jacket Soft Blend, Long Sleeve with Lapel
+              Collar, Perfect for Outdoor Activities
+            </h1>
+            <aside>
+              <p>$70</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4590.jpg'%}" alt="" />
+            <h1>
+              Men's Casual Denim Jeans, 73% 18% Polyester 9% Viscose Blend,
+              Solid Color, Non-Stretch Fabric
+            </h1>
+            <aside>
+              <p>$37</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4592.jpg'%}" alt="" />
+            <h1>
+              2024 Men's Casual & Business Faux Shoes Sleek, Durable Microfiber
+              with Rubber Sole for All Seasons
+            </h1>
+            <aside>
+              <p>$40</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4594.jpg'%}" alt="" />
+            <h1>
+              SOKI Men'S Casual Quartz Watch Set, 4pcs, Round Dial, Alloy Case,
+              Stainless Steel Strap, Pointer Display, Calendar Feature,
+              Non-Waterproof
+            </h1>
+            <aside>
+              <p>$17</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4596.jpg'%}" alt="" />
+            <h1>
+              Traditional African Dashiki Set for Men, Solid Color, Pocket
+              Design, Fashionable Short Sleeve
+            </h1>
+            <aside>
+              <p>$56</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <h2 id="wemenwear">Wemen wear</h2>
+
+          <div>
+            <img src="{% static 'IMG-20250412-WA0022.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$66</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250412-WA0025.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$30</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-20250412-WA0028.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$44</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0119.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$81</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0024.JPG'%}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$17</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0038.JPG' %}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$17</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0002.JPG' %}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$11</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0022.JPG' %}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$22</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0021.JPG' %}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$41</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG-WA0037.jpg' %}" alt="" />
+            <h1></h1>
+            <aside>
+              <p>$38</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <h2 id="kids">Kids</h2>
+
+          <div>
+            <img src="{% static 'IMG_4601.jpg' %}" alt="" />
+            <h1>
+              3pcs Boys' Summer New Solid Color Round Neck Vest and Shorts
+              Crossbody Bag Casual Fashion Suit
+            </h1>
+            <aside>
+              <p>$15</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4603.jpg' %}" alt="" />
+            <h1>
+              2-in-1 Preppy Spring/Fall Outfit Set: Letter Embroidered Baseball
+              Jacket and Pleated Skirt
+            </h1>
+            <aside>
+              <p>$28</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+
+          <div>
+            <img src="{% static 'IMG_4605.jpg' %}" alt="" />
+            <h1>
+              3pcs Boys' Summer New Comfortable Stylish Casual Solid Color Shirt
+              & Plaid Shorts and Hat Set
+            </h1>
+            <aside>
+              <p>$11</p>
+              <a href=""><i class="fas fa-shopping-cart"></i></a>
+            </aside>
+          </div>
+        </div>
+        <a href="#-" id="allproductviewmore">View More</a>
+      </section>
+
+      <section class="bestproduct" id="bestproduct">
+        <h1>Best Choose Our Product</h1>
+
+        <div class="bestproductbutton">
+          <button>Special product</button>
+          <button>Best Sellers</button>
+          <button>New Product</button>
+        </div>
+
+        <div class="bestproductimg">
+          <img src="{% static 'IMG-20251.jpg' %}" alt="" />
+          <img src="{% static 'IMG_4574.jpg' %}" alt="" />
+          <img src="{% static 'IMG_4609.jpg' %}" alt="" />
+          <img src="{% static 'IMG-20240.JPG' %}" alt="" />
+          <img src="{% static 'IMG_1199.JPG' %}" alt="" />
+          <img src="{% static 'IMG_4565.jpg' %}" alt="" />
+        </div>
+      </section>
+
+      <section class="faqs" id="faqs">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="faqscontainer">
+          <img src="{% static 'IMG_4603.jpg' %}" alt="" />
+
+          <div class="faqsbox">
+            <details>
+              <summary>
+                <span>01</span>What payment methods do you accept?
+              </summary>
+              <p>
+                We accept major payment methods including credit/debit cards,
+                PayPal, and bank transfers. Some local options may also be
+                available depending on your region.
+              </p>
+            </details>
+            <details>
+              <summary><span>02</span>How long does delivery take?</summary>
+              <p>
+                Delivery time depends on your location and the shipping method
+                chosen at checkout. Standard shipping usually takes 3–7 business
+                days, while express shipping takes 1 to 3 business days.
+              </p>
+            </details>
+            <details>
+              <summary><span>03</span>Can I track my order?</summary>
+              <p>
+                Yes, once your order is shipped, we'll send you a tracking
+                number via email so you can monitor your delivery in real-time.
+              </p>
+            </details>
+            <details>
+              <summary><span>04</span>What is your return policy?</summary>
+              <p>
+                We offer a 7 to 14 day return window on most items. Products must
+                be unused and in their original packaging. Please contact our
+                support team to initiate a return.
+              </p>
+            </details>
+            <details>
+              <summary><span>05</span> Do you ship internationally?</summary>
+              <p>
+                Yes, we ship worldwide. International shipping rates and
+                delivery times vary depending on your location.
+              </p>
+            </details>
+          </div>
+        </div>
+        <a href="#allproduct">Shop our Collections</a>
+      </section>
+
+      <section class="last">
+        <article class="stayupdated">
+          <div>
+            <h2>
+              Stay Updated with <br />
+              Our Latest Products
+            </h2>
+            <a href="#-">Subscribe Now</a>
+          </div>
+        </article>
+
+        <article class="trendingproducts">
+          <div class="trendingproductflex">
+            <div class="t1">
+              <h3>
+                We Collect The Most Trending And Best Products in Our Store
+              </h3>
+            </div>
+
+            <div class="t2">
+              <p>
+                Expore our blog for the latest trend and creative ideas to
+                transform you. Whether you re looking for design tips or bit
+                projects, our blog is your go to source for inspiration.
+              </p>
+              <a href="#allproduct" class="shopourcollection"
+                >Shop our Collections</a
+              >
+            </div>
+          </div>
+
+          <h3 class="t2h3">
+            Creative Insights & Quality Products Best for Every one
+          </h3>
+
+          <div class="trendingproductsimg">
+            <img src="{% static 'IMG_4594.jpg' %}" alt="" />
+            <img src="{% static 'IMG_4574.jpg' %}" alt="" />
+            <img src="{% static 'IMG_4584.jpg' %}" alt="" />
+            <img src="{% static 'IMG_1199.JPG' %}" alt="" />
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <section class="allhidden">
+      <article id="cart">
+        <h1>Cart</h1>
+
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Free shipping special for you"
+        />
+
+        <h5>Your shopping cart is empty</h5>
+        <p>Add your favorite items in it.</p>
+
+        <a href="" id="tosignupage" class="signup">Sign In/Register</a> <br />
+        <br />
+        <br />
+        <a href="#-" class="startshopingcart">Start shopping</a>
+      </article>
+
+      <article id="profile" class="profile1">
+        <a href="" class="profilesignin">Sign In / Register</a>
+        <div class="profilebox1">
+          <a href="">Your orders</a>
+          <a href="">Coupons & offers</a>
+          <a href="">Credit balance</a>
+        </div>
+
+        <div class="profilebox2">
+          <a href="">Your reviews</a>
+          <a href="">Followed stores</a>
+          <a href="">Browsing history</a>
+          <a href="">Addresses</a>
+          <a href="">Customer support</a>
+          <a href="">Settings</a>
+        </div>
+      </article>
+
+      <article id="signup" class="auth-section">
+        <div class="auth-container">
+          <div class="form-box" id="signup-form">
+            <h2>Sign Up</h2>
+            <form action="#" method="post">
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email" required />
+              <input type="password" placeholder="Password" required />
+              <button type="submit">Create Account</button>
+            </form>
+            <p class="toggle-link">
+              Already have an account? <a href="#signin-form">Sign in</a>
+            </p>
+          </div>
+
+          <div class="form-box hidden" id="signin-form">
+            <h2>Sign In</h2>
+            <form action="#" method="post">
+              <input type="email" placeholder="Email" required />
+              <input type="password" placeholder="Password" required />
+              <button type="submit">Login</button>
+            </form>
+            <p class="toggle-link">
+              Don't have an account? <a href="#signup-form">Sign Up</a>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article id="checkout" class="checkout">
+        <div class="checkout-container">
+          <h2>Checkout</h2>
+
+          <form class="checkout-form" action="#" method="post">
+            <h3>Billing Information</h3>
+            <input
+              type="text"
+              name="fullname"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Shipping Address"
+              required
+            />
+            <input type="text" name="city" placeholder="City" required />
+            <input
+              type="text"
+              name="zip"
+              placeholder="ZIP / Postal Code"
+              required
+            />
+
+            <h3>Payment Method</h3>
+            <select name="payment-method" required>
+              <option value="">Select Payment Method</option>
+              <option value="card">Credit / Debit Card</option>
+              <option value="bank">Bank Transfer</option>
+              <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <h3>Order Summary</h3>
+            <p><strong>Items Total:</strong> ₦25,000</p>
+            <p><strong>Shipping:</strong> ₦1,500</p>
+            <p><strong>Total:</strong> ₦26,500</p>
+
+            <button type="submit">Place Order</button>
+          </form>
+        </div>
+      </article>
+
+      <article id="aboutus" class="about-us">
+        <div class="about-container">
+          <h2>About Us</h2>
+          <p>
+            Welcome to <strong>Kezie</strong> — your one-stop online store for
+            quality, affordability, and convenience. We are committed to
+            delivering a seamless shopping experience that puts you first.
+            Whether it's fashion, electronics, home essentials, or unique finds,
+            Kezie offers a wide range of products tailored to your needs.
+          </p>
+
+          <p>
+            Our mission is simple: to bring value, trust, and satisfaction to
+            every customer. We believe in honest service, fast delivery, and
+            products that meet your expectations.
+          </p>
+          <p>Thank you for choosing Kezie. Shop smart. Shop with confidence.</p>
+        </div>
+      </article>
+
+      <article id="privacy" class="privacy-policy">
+        <div class="privacy-container">
+          <h2>Privacy Policy</h2>
+          <p>
+            At <strong>Kezie</strong>, we respect your privacy and are committed
+            to protecting your personal information. This policy outlines how we
+            collect, use, and safeguard your data when you visit or make a
+            purchase from our store.
+          </p>
+
+          <h3>Information We Collect</h3>
+          <p>
+            We may collect your name, email address, phone number, shipping
+            address, and payment information to fulfill your orders and provide
+            customer support.
+          </p>
+
+          <h3>How We Use Your Information</h3>
+          <p>
+            Your information is used to process transactions, improve our
+            services, personalize your shopping experience, and send updates
+            related to your orders or promotions.
+          </p>
+
+          <h3>Data Protection</h3>
+          <p>
+            We implement strict security measures to ensure your information is
+            safe and never shared with third parties, except as necessary to
+            process your order.
+          </p>
+
+          <h3>Your Rights</h3>
+          <p>
+            You have the right to access, update, or delete your personal
+            information. To make changes, please contact our support team.
+          </p>
+
+          <p>
+            By using our website, you consent to this privacy policy. We may
+            update it occasionally, so please check back for any changes.
+          </p>
+        </div>
+      </article>
+
+      <article id="contactus" class="contact-us">
+        <div class="contact-container">
+          <h2>Contact Us</h2>
+          <p>
+            We'd love to hear from you! Whether you have a question about
+            products, orders, or anything else, our team is ready to help.
+          </p>
+
+          <form class="contact-form" action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+
+          <div class="contact-details">
+            <p><strong>Email:</strong> support@kezie.com</p>
+            <p><strong>Phone:</strong> +234 9122400930</p>
+            <p>
+              <strong>Address:</strong> 123 Kezie Street, IMO State, Nigeria
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="settings" class="settings-section">
+      <div class="settings-container">
+        <h2>Account Settings</h2>
+
+        <form class="settings-form" action="#" method="post">
+          <h3>Profile Information</h3>
+          <input type="text" name="fullname" placeholder="Full Name" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+
+          <h3>Password</h3>
+          <input
+            type="password"
+            name="current-password"
+            placeholder="Current Password"
+          />
+          <input
+            type="password"
+            name="new-password"
+            placeholder="New Password"
+          />
+          <input
+            type="password"
+            name="confirm-password"
+            placeholder="Confirm New Password"
+          />
+
+          <h3>Preferences</h3>
+          <label
+            ><input type="checkbox" name="newsletter" /> Receive
+            newsletter</label
+          >
+          <label
+            ><input type="checkbox" name="offers" /> Receive special
+            offers</label
+          >
+
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <nav class="footernavbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#-" class="aboutus">About Us</a></li>
+          <li><a href="#-" class="contactus">Contact Us</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li>
+            <a href="#-" id="footercheckout" class="checkout"
+              >Shipping & Returns</a
+            >
+          </li>
+          <li><a href="#-" class="privacy">Privacy Policy</a></li>
+        </ul>
+      </nav>
+
+      <div class="social-icons">
+        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+
+      <p>&copy; 2025 KezieStore. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'Main.js' %}"></script>
+  </body>
+</html>
