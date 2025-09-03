@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cart</title>
+    <link rel="stylesheet" href="{% static 'Main.css' %}" />
+    <link rel="stylesheet" href="{% static 'cart.css' %}" />
+  </head>
+  <body>
+    <h1>Your Cart</h1>
+    {% if order and order.items.all %}
+    <ul>
+      {% for order_item in order.items.all %}
+      <li>
+        <img
+          src="{{ order_item.item.image.url }}"
+          width="80"
+          alt="{{ order_item.item.title }}"
+        />
+        <p class="label">{{ order_item.item.title }}</p>
+        <p class="quantity">Quantity: {{ order_item.quantity }}</p>
+        <p class="subtotal">Subtotal: ${{ order_item.get_total_price }}</p>
+
+        <!-- Remove button -->
+        <a href="{% url 'core:remove_from_cart' order_item.item.slug %}">
+          <button>Remove</button>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <p class="total-item">Total items: {{ order.get_total_cart_items }}</p>
+    <p class="total-price">Total price: ${{ order.get_total_cart_price }}</p>
+    {% else %}
+    <p>Your cart is empty.</p>
+    <a href="{% url 'core:item-list' %}" class="tohome">Go to Shop</a>
+    {% endif %}
+
+    <a href="{% url 'core:item-list' %}" class="tohome">⬅ Continue Shopping</a>
+    <script src="{% static 'add_to_cart.js' %}"></script>
+    <script src="{% static 'Main.js' %}"></script>
+  </body>
+</html>

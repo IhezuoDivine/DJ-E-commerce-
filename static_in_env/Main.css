@@ -573,7 +573,7 @@ summary{
   background-color: var(--bg-color);
 }
 #cart{
-  display: none;
+  display:block;
   place-items: center;
   align-items: center;
   text-align: center;
