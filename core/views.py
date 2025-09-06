@@ -3,7 +3,10 @@ from django.views.generic import ListView, DetailView
 from .models import Item, OrderItem, Order
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-
+from .forms import CustomUserCreationForm,  CustomAuthenticationForm
+from  django.contrib.auth import login, authenticate
+from .models import CustomUser
+from django.contrib import messages
 
 
 def item_list(request):
@@ -25,6 +28,8 @@ def item_list(request):
     }
     return render(request, "Main.html", context)
 
+
+@login_required
 
 def add_to_cart(request, slug):
     if not request.user.is_authenticated:
@@ -82,3 +87,44 @@ def cart_view(request):
         if order_qs.exists():
             order = order_qs[0]
     return render(request, "cart.html", {"order": order})
+
+#signup and signin
+def signupandlogin_view(request):
+    signup_form = CustomUserCreationForm()
+    login_form = CustomAuthenticationForm()
+
+    if request.method == "POST":
+        if "signup" in request.POST:
+            signup_form = CustomUserCreationForm(request.POST)
+            if signup_form.is_valid():
+                user = signup_form.save()
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return redirect("core:item-list")
+            
+        elif "login" in request.POST:
+            login_form = CustomAuthenticationForm(request, data=request.POST)
+            if login_form.is_valid():
+                user = login_form.get_user()
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return redirect("core:item-list")
+
+    return render(request, "Main.html", {
+        "signup_form": signup_form,
+        "login_form": login_form
+    })
+
+@login_required 
+def customer_list(request):
+    users = CustomUser.objects.all()
+    return render(request, "core/customers.html", {"users": users})
+
+
+@login_required
+def delete_customer(request, user_id):
+    if request.user.is_superuser:  # only superusers can delete
+        user = get_object_or_404(CustomUser, id=user_id)
+        user.delete()
+        messages.success(request, "User deleted successfully.")
+    else:
+        messages.error(request, "You are not authorized to delete users.")
+    return redirect('core:customer-list')

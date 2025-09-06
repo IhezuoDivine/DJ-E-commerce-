@@ -144,4 +144,7 @@ AUTHENTICATION_BACKENDS = [
     # Allauth login
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
 SITE_ID = 1
+
+AUTH_USER_MODEL = "core.CustomUser"
