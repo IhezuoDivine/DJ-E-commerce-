@@ -1,0 +1,97 @@
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+  --bg-color: hsl(0, 0%, 95%);
+  --second-bg-color: hsl(210, 20%, 82%);
+  --main: green;
+  --text-color: black;
+}
+body {
+  font-family: system-ui, Arial;
+  margin: 24px;
+  display: block;
+  justify-content: center;
+  background-color: var(--second-bg-color);
+}
+@media (min-width: 1000px) {
+  body {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+}
+.checkout-container h2 {
+  text-align: center;
+}
+.checkout-form {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.checkout-form input {
+  margin-top: 10px;
+}
+.checkout-form h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+select {
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+.checkout-form button {
+  margin-left: 30px;
+}
+label {
+  display: block;
+  margin: 8px 0 4px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+.right {
+  text-align: right;
+}

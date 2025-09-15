@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'login_and_signup.css' %}" />
+  </head>
+  <body>
+    <section class="auth-container">
+      <div class="form-box hidden" id="signin-form">
+        <h2>Sign In</h2>
+        <form action="{% url 'core:login' %}" method="post">
+          {% csrf_token %} {{ login_form.non_field_errors }}
+
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <input type="hidden" name="next" value="{{ request.GET.next }}" />
+
+          <button type="submit" name="login">Login</button>
+        </form>
+        <p class="toggle-link">
+          Don't have an account? <a href="{% url 'core:signup' %}">Sign Up</a>
+        </p>
+        <div class="errors">{{ login_form.errors }}</div>
+      </div>
+    </section>
+  </body>
+</html>

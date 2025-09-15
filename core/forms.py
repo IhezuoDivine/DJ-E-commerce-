@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser
+from .models import ShippingAddress, Payment
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -26,3 +27,15 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.EmailField(label="Email")
+
+class CheckoutForm(forms.Form):
+    full_name = forms.CharField(max_length=120)
+    phone = forms.CharField(max_length=30)
+    address_line = forms.CharField(max_length=300, label ="Address")
+    city = forms.CharField(max_length=100)
+    state = forms.CharField(max_length=100, required=False)
+    country = forms.CharField(max_length=100, initial="Nigeria")
+    postal_code = forms.CharField(max_length=20, required=False)
+
+    payment_method = forms.ChoiceField(choices=Payment.METHOD_CHOICES, widget=forms.RadioSelect)
+

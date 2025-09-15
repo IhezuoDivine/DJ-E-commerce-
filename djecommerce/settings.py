@@ -148,3 +148,8 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 AUTH_USER_MODEL = "core.CustomUser"
+
+
+LOGIN_URL = 'core:login'
+LOGIN_REDIRECT_URL = 'core:item-list'
+LOGOUT_REDIRECT_URL = 'core:login'

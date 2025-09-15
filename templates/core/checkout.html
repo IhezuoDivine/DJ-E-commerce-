@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkout</title>
+    <link rel="stylesheet" href="{% static 'checkout.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <article id="checkout" class="checkout">
+      <div class="checkout-container">
+        <h2>Checkout</h2>
+        <form class="checkout-form" method="post" novalidate>
+          {% csrf_token %}
+          <h3>Shipping Details</h3>
+          <input type="text" name="fullname" placeholder="Full Name" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="Shipping Address"
+            required
+          />
+          <input
+            class="text"
+            type="text"
+            name="city"
+            placeholder="City"
+            required
+          />
+          <input
+            class="text"
+            type="text"
+            name="state"
+            placeholder="State"
+            required
+          />
+          <input
+            class="text"
+            type="text"
+            name="country"
+            placeholder="Country"
+            required
+          />
+          <input
+            type="text"
+            name="zip"
+            placeholder="ZIP / Postal Code"
+            required
+          />
+
+          <h3>Payment Method</h3>
+          <select name="payment_method" required>
+            <option value="">Select Payment Method</option>
+            <option value="card">Credit / Debit Card</option>
+            <option value="bank">Bank Transfer</option>
+            <option value="cod">Cash on Delivery</option>
+          </select>
+
+          <div class="card">
+            <h2>Order Summary</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th class="right">Qty</th>
+                  <th class="right">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for oi in order.items.all %}
+                <tr>
+                  <td>{{ oi.item.title }}</td>
+                  <td class="right">{{ oi.quantity }}</td>
+                  <td class="right">₦{{ oi.get_total_price }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td class="right" colspan="2"><b>Subtotal</b></td>
+                  <td class="right"><b>₦{{ order.subtotal }}</b></td>
+                </tr>
+                <tr>
+                  <td class="right" colspan="2"><b>Total</b></td>
+                  <td class="right"><b>₦{{ order.total }}</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <button type="submit">Place Order</button>
+        </form>
+      </div>
+    </article>
+    <script src="{% static 'add_to_cart.js' %}"></script>
+    <script src="{% static 'Main.js' %}"></script>
+  </body>
+</html>

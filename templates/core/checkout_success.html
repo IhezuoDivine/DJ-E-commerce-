@@ -1,0 +1,42 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Sucessful</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        margin: 24px;
+      }
+      .card {
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 16px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 12px;
+        text-decoration: none;
+        background-color: rgb(151, 141, 141);
+        padding: 10px;
+        border-radius: 50px;
+        color: white;
+      }
+      a:hover{
+        background-color: rgb(209, 203, 203);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Thank you! 🎉</h1>
+      <p>Your order has been placed.</p>
+      <p><b>Reference:</b> {{ payment.reference }}</p>
+      <p><b>Amount:</b> ₦{{ payment.amount }}</p>
+      <p><b>Payment Method:</b> {{ payment.get_method_display }}</p>
+      <a href="{% url 'core:cart' %}">Back to store</a>
+    </div>
+  </body>
+</html>

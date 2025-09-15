@@ -34,9 +34,11 @@
 
     <p class="total-item">Total items: {{ order.get_total_cart_items }}</p>
     <p class="total-price">Total price: ${{ order.get_total_cart_price }}</p>
+
+    <a class="button" href="{% url 'core:checkout' %}">Proceed to Checkout</a>
+
     {% else %}
-    <p>Your cart is empty.</p>
-    <a href="{% url 'core:item-list' %}" class="tohome">Go to Shop</a>
+    <p class="emptycart">Your cart is empty.</p>
     {% endif %}
 
     <a href="{% url 'core:item-list' %}" class="tohome">⬅ Continue Shopping</a>

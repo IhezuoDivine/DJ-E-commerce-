@@ -1,0 +1,81 @@
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+  --bg-color: hsl(0, 0%, 95%);
+  --second-bg-color: hsl(210, 20%, 82%);
+  --main: green;
+  --text-color: black;
+}
+body {
+  background-color: var(--second-bg-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.form-box {
+  border: 1px solid #ccc;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background-color: hsl(210, 20%, 89%);
+}
+
+.form-box h2 {
+  text-align: center;
+  color: hsl(30, 100%, 40%);
+  margin-bottom: 20px;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box input {
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-box button {
+  padding: 12px;
+  background-color: hsl(30, 100%, 40%);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background-color: hsl(30, 100%, 35%);
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.95em;
+  cursor: pointer;
+  color: hsl(30, 100%, 40%);
+}
+
+.toggle-link a{
+    color:var(--main)
+}
+.toggle-link a:hover{
+   color: rgb(143, 170, 143);
+}
+
+

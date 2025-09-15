@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <link rel="stylesheet" href="{% static 'login_and_signup.css' %}" />
+  </head>
+  <body>
+    <section class="auth-container">
+      <!-- SIGN UP-->
+      <div class="form-box" id="signup-form">
+        <h2>Sign Up</h2>
+        <form action="{% url 'core:signup' %}" method="post">
+          {% csrf_token %} {{ form.non_field_errors }}
+
+          <input
+            type="text"
+            name="full_name"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            type="text"
+            class="username"
+            name="username"
+            placeholder="Username"
+            required
+          />
+
+          <input
+            type="email"
+            class="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            name="password1"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            name="password2"
+            placeholder="Confirm Password"
+            required
+          />
+
+          <button type="submit" name="signup">Sign Up</button>
+        </form>
+        <p class="toggle-link">
+          Already have an account? <a href="{% url 'core:login' %}">Sign in</a>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
