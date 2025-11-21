@@ -16,5 +16,5 @@ urlpatterns = [
     path("customers/delete/<int:user_id>/", views.delete_customer, name="delete-customer"),
     path("checkout/", views.checkout_view, name="checkout"),
     path("checkout/success/<str:ref>/", views.checkout_success, name="checkout_success"),
-
+    path('cancel/', views.cancel, name='cancel'),
 ]

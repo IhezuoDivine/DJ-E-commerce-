@@ -9,6 +9,11 @@ from django.contrib.auth import login, authenticate, logout
 from .models import CustomUser
 from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
+import stripe
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
 
 def item_list(request):
     men_wear = Item.objects.filter(category='MW')
@@ -148,12 +153,16 @@ def get_user_cart(user):
     order, created = Order.objects.get_or_create(user=user, ordered=False)
     return order
 
-@login_required
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+@login_required 
 def checkout_view(request):
     order = Order.objects.filter(user=request.user, ordered=False).first()
     if not order:
         messages.error(request, "No active order found.")
-        return redirect("core:cart")
+        return redirect("cart")
 
     if request.method == "POST":
         fullname = request.POST.get("fullname")
@@ -165,7 +174,12 @@ def checkout_view(request):
         zip_code = request.POST.get("zip")
         payment_method = request.POST.get("payment_method")
 
-        # save shipping details
+        # Validate form
+        if not all([fullname, email, address, city, state, country, zip_code, payment_method]):
+            messages.error(request, "Please fill in all the required fields.")
+            return redirect("core:checkout")
+
+        # Save shipping info
         shipping = ShippingAddress.objects.create(
             user=request.user,
             full_name=fullname,
@@ -178,35 +192,87 @@ def checkout_view(request):
         )
         order.shipping_address = shipping
 
-        # save payment
-        payment = Payment.objects.create(
-            user=request.user,
-            amount=order.total,  # using @property total
-            method=payment_method,
-            reference=str(uuid.uuid4())[:10].upper(),
-        )
-        order.payment = payment
-        order.ordered = True
-        order.status = "paid"
-        order.save()
+        # --- Handle Payment ---
+        if payment_method == "stripe":
+            YOUR_DOMAIN = "http://127.0.0.1:8000"
+            try:
+                checkout_session = stripe.checkout.Session.create(
+                    payment_method_types=['card'],
+                    line_items=[
+                        {
+                            'price_data': {
+                                'currency': 'usd',
+                                'product_data': {'name': f'Order #{order.id}'},
+                                'unit_amount': int(order.total * 100),  # amount in cents
+                            },
+                            'quantity': 1,
+                        },
+                    ],
+                    mode='payment',
+                    success_url=YOUR_DOMAIN + '/checkout/success/{CHECKOUT_SESSION_ID}/',
+                    cancel_url=YOUR_DOMAIN + '/checkout/cancel/',
+                )
 
-        # clear cart items
-        order.items.clear()
+                # Temporarily store a payment record
+                Payment.objects.create(
+                    user=request.user,
+                    amount=order.total,
+                    method="stripe",
+                    reference=checkout_session.id,
+                    status="pending",
+                )
+                return redirect(checkout_session.url)
 
-        messages.success(request, "Order placed successfully!")
-        return redirect("core:checkout_success", ref=payment.reference)
+            except Exception as e:
+                messages.error(request, f"Stripe Error: {e}")
+                return redirect("core:checkout")
+
+        else:
+            # For other methods like cash or banktransfer (manual)
+            payment = Payment.objects.create(
+                user=request.user,
+                amount=order.total,
+                method=payment_method,
+                reference=str(uuid.uuid4())[:10].upper(),
+                status="pending",
+            )
+            order.payment = payment
+            order.save()
+            messages.success(request, "Order placed! Awaiting payment.")
+            return redirect("core:checkout_success", ref=payment.reference)
 
     return render(request, "core/checkout.html", {"order": order})
 
 
 @login_required
-def checkout_success(request, ref):
-    payment = get_object_or_404(Payment, reference=ref, user=request.user)
-    order = Order.objects.filter(user=request.user, payment=payment).first()
+def checkout_success(request, ref=None, session_id=None):
+    if session_id:
+        # Verify payment via Stripe
+        session = stripe.checkout.Session.retrieve(session_id)
+        payment_intent = stripe.PaymentIntent.retrieve(session.payment_intent)
 
-     # mark order as paid/completed
-    if order:
-        order.status = "paid"
-        order.ordered = True
-        order.save()
+        payment = Payment.objects.filter(reference=session.id).first()
+        if payment:
+            payment.status = "success"
+            payment.save()
+
+        order = Order.objects.filter(user=request.user, ordered=False).first()
+        if order:
+            order.payment = payment
+            order.ordered = True
+            order.status = "paid"
+            order.save()
+            order.items.clear()
+
+        messages.success(request, "Payment successful! Your order is complete.")
+    else:
+        payment = get_object_or_404(Payment, reference=ref, user=request.user)
+        order = Order.objects.filter(user=request.user, payment=payment).first()
+
+
     return render(request, "core/checkout_success.html", {"payment": payment, "order": order})
+
+
+def cancel(request):
+    messages.warning(request, "Payment cancelled. Please try again.")
+    return render(request, "core/cancel.html")

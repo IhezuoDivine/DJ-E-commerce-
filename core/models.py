@@ -146,18 +146,25 @@ class ShippingAddress(models.Model):
     def __str__(self):
         return f"{self.full_name}  - {self.address_line}, {self.city}"
     
-
+    
 class Payment(models.Model):
-    METHOD_CHOICES =[
-        ("cod","Cash on Delivery"),
+    METHOD_CHOICES = [
+        ("cod", "Cash on Delivery"),
         ("card", "Card (Dummy)"),
+    ]
+
+    STATUS_CHOICES = [
+        ("pending", "Pending"),
+        ("completed", "Completed"),
+        ("failed", "Failed"),
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     method = models.CharField(max_length=10, choices=METHOD_CHOICES)
-    timestamp = models.DateTimeField(auto_now_add=True)
     reference = models.CharField(max_length=50, unique=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.method} - {self.reference} - #{self.amount}"
